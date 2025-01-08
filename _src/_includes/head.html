@@ -1,0 +1,24 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>
+  {% block title_before %}{% endblock %}
+  {{ site.name }}
+  {% block title_after %}{% endblock %}
+</title>
+<link rel="stylesheet" href="/uswds-2.10.1/css/uswds.min.css" type="text/css">
+<script src="/uswds-2.10.1/js/uswds-init.min.js"></script>
+{% include 'meta.html' %}
+
+<link href="/css/site.css" rel="stylesheet" />
+
+{% block canonical %}{% endblock %}
+
+{# Uncomment favicons when you've provided your own #}
+{# include 'favicons.html' #}
+
+{% block extrahead %}{% endblock %}
+{% block feeds %}{% endblock %}
+
+{% if site.google_analytics_ua or site.dap_agency %}
+  {% include 'analytics.html' %}
+{% endif %}

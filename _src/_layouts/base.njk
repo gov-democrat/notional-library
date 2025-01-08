@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en-US" {% block html_tag_extra %} {% endblock html_tag_extra %} >
+  <head>
+    {% include 'head.html' %}
+  </head>
+  <body id="{% block bodyid %}{% endblock %}" class="{{ layout.class }} {{ page.class }}">
+  <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+  
+  {% include "header/usa-banner.html" %}
+  <div class="usa-overlay"></div>
+
+  {% include "header/header.html" %}
+
+  <main id="main-content"{% if templateClass %} class="{{ templateClass }}"{% endif %}>
+    {% block main %}
+      {{ content | safe }}
+    {% endblock %}
+  </main>
+
+  {% block footer %}
+    {% include "footer.html" %}
+  {% endblock %}
+
+  {% block site_js %}
+    {% include 'scripts.html' %}
+  {% endblock %}
+
+  {% block extra_js %}{% endblock %}{# useful for vars, initializations, and per-page js #}
+
+</body>
+</html>
